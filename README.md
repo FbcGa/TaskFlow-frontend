@@ -1,4 +1,4 @@
-## TaskFlow
+# TaskFlow
 
 # Description
 - "SparkTasks" is an application that allows users to create and manage task lists in a simple and organized manner. Each list acts as a space where users can add multiple related tasks.
