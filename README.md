@@ -11,6 +11,7 @@
 - Task Management: Within each list, users can add, edit, reorder, and delete tasks as needed.
 - Intuitive Interface: The application provides quick interactions with easily accessible buttons for adding or modifying items.
   
-# Credentials: You can create your own user or log in with this one
+# Credentials: 
+## You can create your own user or log in with this one
 - username : user@gmail.com
 - password : 1234
