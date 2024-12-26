@@ -49,7 +49,7 @@ export function SortableList({ list }) {
 
   if (isDragging) {
     return (
-      <li className="bg-gray-700 border border-red-700 rounded-lg p-4 shadow-md transition-all hover:scale-105 hover:border-cyan-400 opacity-70 h-20" ref={setNodeRef} style={style}></li>
+      <li className="bg-gray-700 border border-red-700 rounded-lg p-4 shadow-md transition-all hover:scale-105 hover:border-cyan-400 opacity-70 h-30" ref={setNodeRef} style={style}></li>
     );
   }
   return (

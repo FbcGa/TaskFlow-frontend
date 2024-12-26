@@ -43,7 +43,7 @@ export function SortableTask({ task, listId }) {
   if (editMode) {
     return (
       <div
-        className="flex justify-between items-center p-2 border border-gray-600 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:scale-105 hover:border-cyan-400"
+        className="flex justify-between items-center p-2 border border-gray-600 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:border-cyan-400"
         ref={setNodeRef}
         style={style}
         {...attributes}
@@ -62,7 +62,7 @@ export function SortableTask({ task, listId }) {
           onClick={() => deleteTask(task.id, listId)}
           className="task-delete-button"
         >
-          <i className="fa-solid fa-trash"></i>
+          <Trash2 size={16}/>
         </button>
       </div>
     );
@@ -70,12 +70,12 @@ export function SortableTask({ task, listId }) {
 
   if (isDragging)
     return (
-      <div className="flex justify-between items-center p-2 border border-red-700 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:scale-105 hover:border-cyan-400 h-16" ref={setNodeRef} style={style}></div>
+      <div className="flex justify-between items-center p-2 border border-red-700 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:border-cyan-400 h-16" ref={setNodeRef} style={style}></div>
     );
 
   return (
     <div
-      className="flex justify-between items-center p-2 border border-gray-600 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:scale-105 hover:border-cyan-400"
+      className="flex justify-between items-center p-2 border border-gray-600 rounded-md bg-gray-800 text-gray-100 shadow-md transition-all hover:border-cyan-400"
       ref={setNodeRef}
       style={style}
       {...attributes}
