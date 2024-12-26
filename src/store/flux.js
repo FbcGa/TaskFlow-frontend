@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      message: null,
+      message: "holaaaaaaaa",
       demo: [
         {
           title: "FIRST",
@@ -26,7 +26,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       getMessage: async () => {
         try {
           // fetching data from the backend
-          const resp = await fetch(import.meta.env.BACKEND_URL + "/api/hello");
+          const resp = await fetch(
+            import.meta.env.VITE_BACKEND_URL + "/api/hello"
+          );
           const data = await resp.json();
           setStore({ message: data.message });
           // don't forget to return something, that is how the async resolves
@@ -51,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       register: async (email, password) => {
         const resp = await fetch(
-          import.meta.env.BACKEND_URL + "/api/register",
+          import.meta.env.VITE_BACKEND_URL + "/api/register",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -67,11 +69,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         return data;
       },
       login: async (email, password) => {
-        const resp = await fetch(import.meta.env.BACKEND_URL + "/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        });
+        const resp = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/login",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          }
+        );
 
         if (!resp.ok) {
           return false;
@@ -85,13 +90,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       //functions list
       allList: async () => {
         const token = localStorage.getItem("token");
-        const resp = await fetch(import.meta.env.BACKEND_URL + "/api/list", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const resp = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/list",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         if (!resp.ok) {
           return false;
         }
@@ -101,14 +109,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       addList: async (title) => {
         const store = getStore();
         const token = localStorage.getItem("token");
-        const resp = await fetch(import.meta.env.BACKEND_URL + "/api/list", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ title }),
-        });
+        const resp = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/list",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ title }),
+          }
+        );
         if (resp.status === 401) {
           return null;
         }
@@ -131,7 +142,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("token");
         const store = getStore();
         const resp = await fetch(
-          import.meta.env.BACKEND_URL + "/api/list/delete",
+          import.meta.env.VITE_BACKEND_URL + "/api/list/delete",
           {
             method: "DELETE",
             headers: {
@@ -154,7 +165,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("token");
 
         const resp = await fetch(
-          import.meta.env.BACKEND_URL + "/api/list/change",
+          import.meta.env.VITE_BACKEND_URL + "/api/list/change",
           {
             method: "PUT",
             headers: {
@@ -182,14 +193,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       addTask: async (text, listId) => {
         const store = getStore();
         const token = localStorage.getItem("token");
-        const resp = await fetch(import.meta.env.BACKEND_URL + "/api/task", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ text: text, list_id: listId }),
-        });
+        const resp = await fetch(
+          import.meta.env.VITE_BACKEND_URL + "/api/task",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ text: text, list_id: listId }),
+          }
+        );
         if (!resp.ok) {
           return false;
         }
@@ -207,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("token");
         const store = getStore();
         const resp = await fetch(
-          import.meta.env.BACKEND_URL + "/api/task/delete",
+          import.meta.env.VITE_BACKEND_URL + "/api/task/delete",
           {
             method: "DELETE",
             headers: {
@@ -238,7 +252,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("token");
 
         const resp = await fetch(
-          import.meta.env.BACKEND_URL + "/api/task/change",
+          import.meta.env.VITE_BACKEND_URL + "/api/task/change",
           {
             method: "PUT",
             headers: {
@@ -279,7 +293,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const resp = await fetch(
-            import.meta.env.BACKEND_URL + "/api/list/reorder",
+            import.meta.env.VITE_BACKEND_URL + "/api/list/reorder",
             {
               method: "PUT",
               headers: {
@@ -303,7 +317,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const resp = await fetch(
-            `${import.meta.env.BACKEND_URL}/api/tasks/reorder`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/tasks/reorder`,
             {
               method: "PUT",
               headers: {
@@ -345,7 +359,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const resp = await fetch(
-            import.meta.env.BACKEND_URL + "/api/task/move",
+            import.meta.env.VITE_BACKEND_URL + "/api/task/move",
             {
               method: "PUT",
               headers: {
