@@ -42,9 +42,8 @@ export function AddThings({ textItem, id }) {
           ></textarea>
         </div>
       ) : (
-        <button className="bg-cyan-400 text-white p-2 rounded-md cursor-pointer transition-colors hover:bg-cyan-500" onClick={() => setItem(true)}>
+        <button className=" bg-cyan-400 text-white p-2 rounded-md cursor-pointer transition-colors hover:bg-cyan-500" onClick={() => setItem(true)}>
           <Plus />
-          <span>Add</span>
         </button>
       )}
     </section>

@@ -49,7 +49,7 @@ export function SortableList({ list }) {
 
   if (isDragging) {
     return (
-      <li className="bg-gray-700 border border-red-700 rounded-lg p-4 shadow-md transition-all hover:scale-105 hover:border-cyan-400 opacity-70" ref={setNodeRef} style={style}></li>
+      <li className="bg-gray-700 border border-red-700 rounded-lg p-4 shadow-md transition-all hover:scale-105 hover:border-cyan-400 opacity-70 h-20" ref={setNodeRef} style={style}></li>
     );
   }
   return (
@@ -87,7 +87,7 @@ export function SortableList({ list }) {
           <SortableTask task={task} key={task.id} listId={list.id} />
         ))}
       </SortableContext>
-      <div style={{ marginTop: "20px" }}>
+      <div className="mt-5">
         <AddThings textItem="Task" id={list.id} />
       </div>
     </li>
