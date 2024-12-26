@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
-import { Context } from "../store/appContext.jsx";
+import { Context } from "../store/appContext";
 import { Plus } from "lucide-react";
 
 export function AddThings({ textItem, id }) {
@@ -29,14 +29,11 @@ export function AddThings({ textItem, id }) {
   };
 
   return (
-    <section className="mt-4">
+    <section className="flex flex-col items-center mt-5 max-w-xl mx-auto">
       {item ? (
-        <div
-          className="border border-gray-300 rounded-md shadow-sm p-2"
-          onClick={handleAddItem}
-        >
+        <div className="w-full flex flex-col gap-2" onClick={handleAddItem}>
           <textarea
-            className="w-full p-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="w-full h-16 p-2 border border-green-500 rounded-md bg-gray-700 text-gray-100 resize-none focus:outline-none focus:border-green-500"
             ref={addRef}
             placeholder={`Write a new ${textItem}`}
             onKeyDown={handleKeyDown}
@@ -45,11 +42,8 @@ export function AddThings({ textItem, id }) {
           ></textarea>
         </div>
       ) : (
-        <button
-          className="flex items-center gap-2 px-4 py-2 text-sm text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          onClick={() => setItem(true)}
-        >
-          <Plus className="w-4 h-4" />
+        <button className="bg-cyan-400 text-white p-2 rounded-md cursor-pointer transition-colors hover:bg-cyan-500" onClick={() => setItem(true)}>
+          <Plus />
           <span>Add</span>
         </button>
       )}

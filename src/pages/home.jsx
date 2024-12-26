@@ -172,9 +172,9 @@ export const Home = () => {
 
   if (store.list.length === 0) {
     return (
-      <div className="empty-list-container">
-        <p className="empty-list-message">
-          Start by creating a list to organize your tasks!
+      <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg max-w-sm text-center text-gray-100 mt-12 mx-auto">
+        <p className="text-xl font-bold text-yellow-400 mb-4">
+          No Lists Available
         </p>
         <AddThings textItem="List" />
       </div>
@@ -182,8 +182,8 @@ export const Home = () => {
   }
 
   return (
-    <main className="main-container">
-      <div className="add-margin">
+    <main className="block">
+      <div className="max-w-md m-auto">
         <AddThings textItem="List" />
       </div>
       <DndContext
@@ -192,9 +192,9 @@ export const Home = () => {
         onDragEnd={onDragEnd}
         onDragOver={onDragOver}
       >
-        <section className="home-container">
+        <section className="w-full flex gap-5 justify-center items-center p-5">
           <SortableContext items={ColumnList}>
-            <ul className="list-container">
+            <ul className="w-full list-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 m-5">
               {store.list?.map((list) => (
                 <SortableList list={list} key={list.id} />
               ))}

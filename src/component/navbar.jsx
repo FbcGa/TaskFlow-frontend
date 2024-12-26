@@ -11,37 +11,35 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark">
-      <Link className="navbar-brand ms-3" to="/">
-        <span>SparkTasks </span>
-      </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav ms-auto">
+    <nav className="bg-gray-800 p-4 shadow-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <Link className="text-white text-2xl font-semibold" to="/">
+          TaskFlow
+        </Link>
+        <button
+          className="text-white md:hidden"
+          type="button"
+          aria-label="Toggle navigation"
+          onClick={() => document.getElementById("navbarLinks").classList.toggle("hidden")}
+        >
+          <span className="block w-6 h-0.5 bg-white my-1"></span>
+          <span className="block w-6 h-0.5 bg-white my-1"></span>
+          <span className="block w-6 h-0.5 bg-white my-1"></span>
+        </button>
+        <div id="navbarLinks" className="hidden md:flex space-x-4">
           {token ? (
-            <li className="nav-item">
-              <button className="btn btn-link nav-link" onClick={handleSignIn}>
-                <i className="fa-solid fa-right-to-bracket"></i> Logout
-              </button>
-            </li>
+            <button
+              className="text-white hover:text-gray-400"
+              onClick={handleSignIn}
+            >
+              <i className="fa-solid fa-right-to-bracket"></i> Logout
+            </button>
           ) : (
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                <i className="fa-solid fa-right-to-bracket"></i> Login
-              </Link>
-            </li>
+            <Link className="text-white hover:text-gray-400" to="/login">
+              <i className="fa-solid fa-right-to-bracket"></i> Login
+            </Link>
           )}
-        </ul>
+        </div>
       </div>
     </nav>
   );
