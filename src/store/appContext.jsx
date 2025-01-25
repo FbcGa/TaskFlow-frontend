@@ -18,7 +18,7 @@ const StoreWrapper = ({ children }) => {
 
   useEffect(() => {
     const getAllList = async () => {
-      state.actions.allList();
+      await state.actions.allList();
     };
     getAllList();
   }, []);
