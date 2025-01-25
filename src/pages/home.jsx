@@ -18,8 +18,10 @@ import {
 import { SortableList } from "../component/sortableList.jsx";
 import { createPortal } from "react-dom";
 
+// Presentational Component for Task to use within DragOverlay
 const TaskOverlay = ({ task }) => (
   <div className="task-overlay">
+    {/* Render your task details here */}
     {task.text}
   </div>
 );
@@ -164,7 +166,7 @@ export const Home = () => {
     useSensor(PointerSensor, { activationConstraint: { distance: 3 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
-  
+
   if (store.list.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg max-w-sm text-center text-gray-100 mt-12 mx-auto">
