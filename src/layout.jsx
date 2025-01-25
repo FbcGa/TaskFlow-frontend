@@ -5,8 +5,8 @@ import { Home } from "./pages/home.jsx";
 import { Login } from "./pages/login.jsx";
 import { Register } from "./pages/register.jsx";
 import { Navbar } from "./component/navbar.jsx";
-import ProtectedRoute from "./component/protectedRoute.jsx";
 import StoreWrapper from "./store/appContext.jsx";
+
 
 //create your first component
 export const Layout = () => {
@@ -22,14 +22,7 @@ export const Layout = () => {
       <BrowserRouter basename={basename}>
         <Navbar />
         <Routes>
-          <Route
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-            path="/"
-          />
+          <Route element={<Home />} path="/" />
           <Route element={<Login />} path="/login" />
           <Route element={<Register />} path="/register" />
           <Route path="*" element={<h1>Not found!</h1>} />
