@@ -1,6 +1,5 @@
 import React, { useContext, useMemo, useState } from "react";
 import { Context } from "../store/appContext";
-import { useAuth } from "../hooks/authUser";
 import { AddThings } from "../component/addThings.jsx";
 
 import {
@@ -167,8 +166,6 @@ export const Home = () => {
     useSensor(PointerSensor, { activationConstraint: { distance: 3 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
-
-  useAuth();
 
   if (store.list.length === 0) {
     return (
